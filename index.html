@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SweetTok Treats - Pre-Order</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(to bottom, #fbacc0, #FB638F);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: 24px;
+    }
+
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .logo img {
+      width: 160px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .title {
+      text-align: center;
+      color: #c77995;
+      font-weight: bold;
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+
+    .schedule-box {
+       background-color: #fff5f8;
+       border-left: 4px solid #c77995;
+       padding: 14px 16px;
+       margin-bottom: 20px;
+       border-radius: 0 4px 4px 0;
+        }
+
+    .schedule-box h2 {
+      color: #c77995;
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .schedule-box p {
+      color: #666;
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    
+    .valentines-banner {
+      background:  #ff6b9d ;
+      color: white;
+      padding: 16px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(255, 107, 157, 0.4);
+    }
+
+    .valentines-banner h2 {
+      font-size: 20px;
+
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .valentines-banner p {
+      font-size: 12px;
+      font-weight: bold;
+      opacity: 0.95;
+    }
+
+    .delivery-toggle {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .delivery-toggle button {
+      flex: 1;
+      padding: 12px;
+      border-radius: 9999px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 16px;
+    }
+
+    .delivery-toggle button.active {
+      background: #c77995;
+      color: white;
+      border: none;
+    }
+
+    .delivery-toggle button.inactive {
+      background: white;
+      color: #c77995;
+      border: 2px solid #c77995;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      color: #c77995;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .form-group label .required {
+      color: #ec4899;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      border: 2px solid #EA8EAF;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #EA8EAF;
+    }
+
+    .pricing-box {
+      background: #fff5f8;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .pricing-box h3 {
+      color: #c77995;
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .pricing-box ul {
+      list-style: none;
+      color: #666;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .pricing-box li {
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #EA8EAF;
+      font-weight: bold;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    /* Valentine's Specials Section */
+    .valentines-special {
+      border: 3px solid #ff6b9d;
+      border-radius: 16px;
+      padding: 16px;
+      background: #ffffff;
+      margin-bottom: 24px;
+    }
+
+    .valentines-special h3 {
+      color: #ff6b9d;
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .special-item {
+      border: 2px solid #ff6b9d;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .special-item-header {
+      background:  #ff6b9d;
+      color: white;
+      padding: 10px 12px;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .special-item-price {
+      background: white;
+      color: #ff6b9d;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .special-item-content {
+      padding: 12px;
+    }
+
+    .special-item-description {
+      color: #EA8EAF;
+      font-size: 12px;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .special-item-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .special-btn {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff6b9d;
+      background: none;
+      border: 2px solid #ff6b9d;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 18px;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+
+    .special-btn:hover {
+      background: #ff6b9d;
+      color: white;
+    }
+
+    .special-quantity {
+      color: #ff6b9d;
+      font-weight: bold;
+      font-size: 24px;
+      min-width: 40px;
+      text-align: center;
+    }
+
+    .flavors-title {
+      text-align: center;
+      color: #EA8EAF;
+      font-weight: bold;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .flavor-item {
+      border: 2px solid #EA8EAF;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .flavor-content {
+      background: white;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .flavor-btn {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #EA8EAF;
+      background: none;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .flavor-btn:hover {
+      background: #fdf2f8;
+    }
+
+    .flavor-center {
+      flex: 1;
+      text-align: center;
+    }
+
+    .flavor-name {
+      color: #EA8EAF;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .flavor-quantity {
+      color: #EA8EAF;
+      font-weight: bold;
+      font-size: 20px;
+      margin-top: 4px;
+    }
+
+
+    .order-summary {
+      border: 2px solid #EA8EAF;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .order-summary h3 {
+      color: #EA8EAF;
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .order-summary #summaryFlavors {
+      color: #EA8EAF;
+      font-size: 14px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      color: #EA8EAF;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .summary-total {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #EA8EAF;
+    }
+
+     .special-instructions label {
+      display: block;
+      background: #EA8EAF;
+      color: white;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px 8px 0 0;
+      font-size: 14px;
+    }
+
+    .special-instructions textarea {
+       width: 100%;
+       height: 100px;
+       padding: 14px 12px;
+       border: 2px solid #EA8EAF;
+       border-radius: 0 0 6px 6px;      
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: #EA8EAF;
+      color: white;
+      font-weight: bold;
+      padding: 16px;
+      border-radius: 9999px;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: background 0.3s;
+      margin-top: 24px;
+    }
+
+    .submit-btn:hover {
+      background: #FB638F;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .order-closed-banner {
+      background:#FB638F;
+      color: white;
+      padding: 16px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(236, 72, 153, 0.4);
+    }
+
+    .order-closed-banner h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .order-closed-banner p {
+      font-size: 13px;
+      opacity: 0.95;
+    }
+
+    .order-closed-banner .reopen-time {
+      margin-top: 8px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .disabled-section {
+      opacity: 0.5;
+      pointer-events: none;
+      transition: all 0.3s;
+    }
+
+    .disabled-section button {
+      cursor: not-allowed;
+    }
+
+    
+
+
+  </style>
+</head>
+<body>
+  <form class="container" 
+      id="orderForm"
+      action="https://formsubmit.co/Daniellefirth860@gmail.com"
+      method="POST">
+
+       
+    <!-- Logo -->
+   <div class="logo-container">
+  <div class="logo">
+    <img src="https://cdn.imgchest.com/files/5bc0c65f2338.png" alt="SweetTok Treats Logo">
+  </div>
+  </div> <!-- closes logo-container -->
+
+
+
+    <!-- Title -->
+    <h1 class="title">Pre-Order your treats</h1>
+
+    <!-- Valentine's Banner -->
+    <div class="valentines-banner">
+      <h2> Valentine's Day Special </h2>
+      <p>Limited time offers - Order now for Valentine's Day delivery!</p>
+    </div>
+
+    <!-- Order Closed Banner (hidden by default) -->
+    <div class="order-closed-banner" id="orderClosedBanner" style="display:none;">
+      <h2>Orders Are Closed</h2>
+      <p>We are currently preparing for weekend deliveries.</p>
+     <div class="reopen-time">Orders reopen Sunday at 11:59 PM</div>
+    </div>
+
+    <!-- Pre-Order Schedule -->
+    <div class="schedule-box">
+      <h2>Pre-Order Schedule!!!</h2>
+      <p>
+        Pre-Orders are open from Sunday to Friday at 5:00 PM.<br>
+        Orders close for this weekend on Friday evening.<br>
+        Pickup and Deliveries are on Mondays<br>
+        Order your sweet treats today!
+      </p>
+    </div>
+
+    
+    <!-- Delivery Toggle -->
+<div class="delivery-toggle">
+  <button type="button" id="pickupBtn" class="active">Pickup</button>
+  <button type="button" id="deliveryBtn" class="inactive">Delivery</button>
+</div>
+
+    <!-- Form Fields -->
+    <div class="form-group">
+      <label>Name <span class="required">*</span></label>
+      <input type="text" id="name">
+    </div>
+
+    <div class="form-group">
+      <label>Phone Number <span class="required">*</span></label>
+      <input type="tel" id="phone">
+    </div>
+
+    <div class="form-group">
+      <label>E-mail <span class="required">*</span></label>
+      <input type="email" id="email">
+    </div>
+
+    <div class="form-group hidden" id="addressGroup">
+      <label>Delivery Address <span class="required">*</span></label>
+      <input type="text" id="address">
+    </div>
+
+    <!-- Pricing -->
+    <div class="pricing-box">
+      <h3>Pricing</h3>
+      <ul id="pricingList">
+        <li>• 1 Treat = $5.00</li>
+        <li>• 6 Treats = $25.00 (Save $5!)</li>
+      </ul>
+    </div>
+
+    <!-- Valentine's Specials -->
+    <!-- Valentine's Specials -->
+<div class="valentines-special">
+  <h3>💕 Valentine's Day Specials 💕</h3>
+  
+  <!-- Valentine's Treat Box -->
+  <div class="special-item">
+    <div class="special-item-header">
+      <span>Valentine's Treat Box</span>
+      <span class="special-item-price">$</span>
+    </div>
+    <div class="special-item-content">
+      <div class="special-item-description">
+        Description here
+      </div>
+      <div class="special-item-controls">
+        <button type="button" class="special-btn" onclick="updateSpecial('treatBox', -1); event.preventDefault();">−</button>
+        <div class="special-quantity" id="qty-treatBox">0</div>
+        <button type="button" class="special-btn" onclick="updateSpecial('treatBox', 1); event.preventDefault();">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cake Decorating Kit -->
+  <div class="special-item">
+    <div class="special-item-header">
+      <span>DIY Cake Decorating Kit</span>
+      <span class="special-item-price">$</span>
+    </div>
+    <div class="special-item-content">
+      <div class="special-item-description">
+        Description here
+      </div>
+      <div class="special-item-controls">
+        <button type="button" class="special-btn" onclick="updateSpecial('cakeKit', -1); event.preventDefault();">−</button>
+        <div class="special-quantity" id="qty-cakeKit">0</div>
+        <button type="button" class="special-btn" onclick="updateSpecial('cakeKit', 1); event.preventDefault();">+</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    <!-- Flavors Title -->
+    <h2 class="section-title">Select your Flavours</h2>
+
+    <!-- Flavor Items -->
+    <div id="flavorsList"></div>
+
+    <!-- Order Summary -->
+    <div class="order-summary">
+      <h3>Order Summary</h3>
+      <div id="summaryFlavors"></div>
+      <div id="summarySpecials"></div>
+      <div class="summary-line">
+        <span>Subtotal:</span>
+        <span id="subtotal">$0.00</span>
+      </div>
+      <div class="summary-line" id="deliveryFeeLine" style="display:none;">
+        <span>Delivery Fee:</span>
+        <span>$5.00</span>
+      </div>
+      <div class="summary-line summary-total">
+        <span>Total:</span>
+        <span id="total">$0.00</span>
+      </div>
+    </div>
+
+    <!-- Special Instructions -->
+    <div class="special-instructions">
+      <label>Special Instructions (Optional)</label>
+      <textarea id="instructions"></textarea>
+    </div>
+
+    <input type="hidden" name="_subject" value="New SweetTok Treats Order 💖">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+
+<input type="hidden" name="Order Summary" id="fs-summary">
+<input type="hidden" name="Delivery Method" id="fs-delivery">
+<input type="hidden" name="Total Treats" id="fs-total-treats">
+<input type="hidden" name="Valentine Specials" id="fs-specials">
+<input type="hidden" name="Subtotal" id="fs-subtotal">
+<input type="hidden" name="Delivery Fee" id="fs-delivery-fee">
+<input type="hidden" name="Total" id="fs-total">
+
+    <!-- Submit Button -->
+    <button class="submit-btn" id="submitBtn" type="button" onclick="submitOrder()">
+  Submit Order
+</button>
+
+</form>
+
+
+  
+  <script>
+   
+
+    // State
+    let deliveryMethod = 'pickup';
+    const flavors = {
+      'Caramel Banana': 0,
+      'Birthday Cake': 0,
+      'Strawberry': 0,
+      'Biscoff': 0,
+      'Oreo': 0
+    };
+
+    // Valentine's Specials
+    const specials = {
+      'treatBox': 0,
+      'cakeKit': 0
+    };
+
+    const specialPrices = {
+      'treatBox': 0,
+      'cakeKit': 0
+    };
+
+    const specialNames = {
+      'treatBox': "Valentine's Treat Box",
+      'cakeKit': 'DIY Cake Decorating Kit'
+    };
+
+    // Initialize
+    function init() {
+     renderFlavors();
+     updateSummary();
+     setupEventListeners();
+     checkOrderStatus(); 
+     setInterval(checkOrderStatus, 30000); 
+    }
+
+   function checkOrderStatus() {
+    const now = new Date();
+    const day = now.getDay();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+
+  let ordersClosed = false;
+
+  // Friday 5:00 PM (17:00) onwards
+  if (day === 5 && hours >= 17) {
+    ordersClosed = true;
+  }
+  // All of Saturday
+  else if (day === 6) {
+    ordersClosed = true;
+  }
+  // Sunday until 11:59 PM (23:59)
+  else if (day === 0 && (hours < 23 || (hours === 23 && minutes < 59))) {
+    ordersClosed = true;
+  }
+
+  const banner = document.getElementById('orderClosedBanner');
+  const submitBtn = document.getElementById('submitBtn');
+
+  // All the sections we want to grey out
+  const flavorsList = document.getElementById('flavorsList');
+  const valentinesSpecial = document.querySelector('.valentines-special');
+  const deliveryToggle = document.querySelector('.delivery-toggle');
+  const formGroups = document.querySelectorAll('.form-group');
+  const specialInstructions = document.querySelector('.special-instructions');
+
+  if (ordersClosed) {
+    // Show closed banner
+    banner.style.display = 'block';
+
+    // Update reopen message based on current day
+    if (day === 5 || day === 6) {
+      banner.querySelector('.reopen-time').textContent = 'Orders reopen Sunday at 11:59 PM';
+    } else {
+      banner.querySelector('.reopen-time').textContent = 'Orders reopen tonight at 11:59 PM';
+    }
+
+    // Disable submit button
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Orders Are Closed';
+
+    // Grey out sections
+    flavorsList.classList.add('disabled-section');
+    valentinesSpecial.classList.add('disabled-section');
+    deliveryToggle.classList.add('disabled-section');
+    specialInstructions.classList.add('disabled-section');
+    formGroups.forEach(group => group.classList.add('disabled-section'));
+
+  } else {
+    // Hide banner and enable submit
+    banner.style.display = 'none';
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit Order';
+
+    // Re-enable sections
+    flavorsList.classList.remove('disabled-section');
+    valentinesSpecial.classList.remove('disabled-section');
+    deliveryToggle.classList.remove('disabled-section');
+    specialInstructions.classList.remove('disabled-section');
+    formGroups.forEach(group => group.classList.remove('disabled-section'));
+  }
+}
+
+    // Setup event listeners
+    function setupEventListeners() {
+      document.getElementById('pickupBtn').addEventListener('click', () => setDeliveryMethod('pickup'));
+      document.getElementById('deliveryBtn').addEventListener('click', () => setDeliveryMethod('delivery'));
+    }
+
+    // Toggle delivery method
+    function setDeliveryMethod(method) {
+      deliveryMethod = method;
+      
+      const pickupBtn = document.getElementById('pickupBtn');
+      const deliveryBtn = document.getElementById('deliveryBtn');
+      const addressGroup = document.getElementById('addressGroup');
+      
+      if (method === 'pickup') {
+        pickupBtn.className = 'active';
+        deliveryBtn.className = 'inactive';
+        addressGroup.classList.add('hidden');
+      } else {
+        pickupBtn.className = 'inactive';
+        deliveryBtn.className = 'active';
+        addressGroup.classList.remove('hidden');
+      }
+      
+      updateSummary();
+    }
+
+    
+    // Update special items quantity
+function updateSpecial(special, change) {
+  specials[special] = Math.max(0, specials[special] + change);
+  
+  const qtyElement = document.getElementById('qty-' + special);
+  qtyElement.textContent = specials[special];
+  
+  updateSummary();
+  return false; // Prevent form submission
+}
+
+    // Render flavor items
+    function renderFlavors() {
+      const flavorsList = document.getElementById('flavorsList');
+      flavorsList.innerHTML = '';
+      
+      Object.keys(flavors).forEach(flavor => {
+        const item = document.createElement('div');
+        item.className = 'flavor-item';
+        item.innerHTML = `
+  <div class="flavor-content">
+    <button type="button" class="flavor-btn" onclick="updateFlavor('${flavor}', -1)">−</button>
+    <div class="flavor-center">
+      <div class="flavor-name">${flavor}</div>
+      <div class="flavor-quantity" id="qty-${flavor.replace(/\s/g, '')}">${flavors[flavor] > 0 ? flavors[flavor] : ''}</div>
+    </div>
+    <button type="button" class="flavor-btn" onclick="updateFlavor('${flavor}', 1)">+</button>
+  </div>
+        `;
+        flavorsList.appendChild(item);
+      });
+    }
+
+    // Update flavor quantity
+    function updateFlavor(flavor, change) {
+      flavors[flavor] = Math.max(0, flavors[flavor] + change);
+      
+      const qtyElement = document.getElementById('qty-' + flavor.replace(/\s/g, ''));
+      qtyElement.textContent = flavors[flavor] > 0 ? flavors[flavor] : '';
+      
+      updateSummary();
+    }
+
+    // order summary
+    function updateSummary() {
+      const totalTreats = Object.values(flavors).reduce((sum, count) => sum + count, 0);
+      const treatPrice = 5.00;
+      let subtotal = totalTreats * treatPrice;
+
+      // Apply half-dozen discount for treats
+      if (totalTreats === 6) {
+        subtotal = 25;
+      }
+
+      // Add Valentine's specials to subtotal
+      const specialsTotal = Object.entries(specials).reduce((sum, [key, count]) => {
+        return sum + (count * specialPrices[key]);
+      }, 0);
+
+      subtotal += specialsTotal;
+
+      const deliveryFee = deliveryMethod === 'delivery' ? 5 : 0;
+      const total = subtotal + deliveryFee;
+
+      // Display selected flavors
+      const selectedFlavors = Object.entries(flavors)
+        .filter(([_, count]) => count > 0)
+        .map(([flavor, count]) => `${count} ${flavor}`)
+        .join(' & ');
+      
+      // Display selected specials
+      const selectedSpecials = Object.entries(specials)
+        .filter(([_, count]) => count > 0)
+        .map(([key, count]) => `${count} ${specialNames[key]}`)
+        .join(' & ');
+      
+      // Update summary display
+      document.getElementById('summaryFlavors').textContent = selectedFlavors || '';
+      
+      const summarySpecialsDiv = document.getElementById('summarySpecials');
+      if (selectedSpecials) {
+        summarySpecialsDiv.textContent = selectedSpecials;
+        summarySpecialsDiv.style.color = '#ff6b9d';
+        summarySpecialsDiv.style.fontWeight = '600';
+        summarySpecialsDiv.style.marginBottom = '12px';
+        summarySpecialsDiv.style.fontSize = '14px';
+        summarySpecialsDiv.style.textAlign = 'center';
+      } else {
+        summarySpecialsDiv.textContent = '';
+      }
+
+      document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+      
+      // Show/hide delivery fee line
+      const deliveryFeeLine = document.getElementById('deliveryFeeLine');
+      if (deliveryMethod === 'delivery') {
+        deliveryFeeLine.style.display = 'flex';
+      } else {
+        deliveryFeeLine.style.display = 'none';
+      }
+    }
+
+    // Submit order
+    function submitOrder() {
+      const submitBtn = document.getElementById('submitBtn');
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+      const address = document.getElementById('address').value;
+      const instructions = document.getElementById('instructions').value;
+      
+      if (!name || !phone || !email) {
+        alert('Please fill in all required fields');
+        return;
+      }
+      
+      if (deliveryMethod === 'delivery' && !address) {
+        alert('Please provide a delivery address');
+        return;
+      }
+      
+      const totalTreats = Object.values(flavors).reduce((sum, count) => sum + count, 0);
+      const totalSpecials = Object.values(specials).reduce((sum, count) => sum + count, 0);
+      
+      if (totalTreats === 0 && totalSpecials === 0) {
+        alert('Please select at least one item');
+        return;
+      }
+
+      // Disable button while sending
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      // Calculate order details
+const treatPrice = 5.00;
+let subtotal = totalTreats * treatPrice;
+
+// ONLY calculate for exactly 6 treats
+if (totalTreats === 6) {
+  subtotal = 25;
+}
+
+// Add specials
+const specialsTotal = Object.entries(specials).reduce((sum, [key, count]) => {
+  return sum + (count * specialPrices[key]);
+}, 0);
+
+subtotal += specialsTotal;
+
+const deliveryFee = deliveryMethod === 'delivery' ? 5 : 0;
+const total = subtotal + deliveryFee;
+      
+      const selectedFlavors = Object.entries(flavors)
+        .filter(([_, count]) => count > 0)
+        .map(([flavor, count]) => `${count} ${flavor}`)
+        .join(', ');
+
+      const selectedSpecials = Object.entries(specials)
+        .filter(([_, count]) => count > 0)
+        .map(([key, count]) => `${count} ${specialNames[key]} ($${specialPrices[key].toFixed(2)} each)`)
+        .join(', ');
+
+      // Prepare email parameters
+     const templateParams = {
+  customer_name: name,
+  customer_phone: phone,
+  customer_email: email,
+  delivery_method: deliveryMethod,
+  delivery_address: address || 'Pickup',
+  order_flavors: selectedFlavors || 'None',
+  valentines_specials: selectedSpecials || 'None',
+  total_treats: String(totalTreats),
+  order_total: total.toFixed(2),
+  special_instructions: instructions || 'None',
+  delivery_fee: deliveryFee.toFixed(2)
+};
+console.log('Template Params:', templateParams);
+
+    
+     // Fill FormSubmit hidden fields
+document.getElementById('fs-summary').value = selectedFlavors || 'None';
+document.getElementById('fs-specials').value = selectedSpecials || 'None';
+document.getElementById('fs-delivery').value = deliveryMethod;
+document.getElementById('fs-total-treats').value = totalTreats;
+document.getElementById('fs-subtotal').value = subtotal.toFixed(2);
+document.getElementById('fs-delivery-fee').value = deliveryFee.toFixed(2);
+document.getElementById('fs-total').value = total.toFixed(2);
+
+// Submit the form to FormSubmit
+document.getElementById('orderForm').submit();
+
+         
+    }
+
+    // Initialize on load
+    init();
+  </script>
+</body>
+</html>
